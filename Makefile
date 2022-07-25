@@ -2,7 +2,7 @@
 compile:
 	glib-compile-schemas schemas/
 
-install:
+install: compile
 	mkdir -p ~/.local/share/gnome-shell/extensions/tos@odex.be/
 	mkdir -p ~/.local/share/glib-2.0/schemas/
 	cp -ra * ~/.local/share/gnome-shell/extensions/tos@odex.be/
