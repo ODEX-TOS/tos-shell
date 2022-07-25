@@ -4,10 +4,10 @@ compile:
 
 install:
 	mkdir -p ~/.local/share/gnome-shell/extensions/tos@odex.be/
-	mkdir -p .local/share/glib-2.0/schemas/
+	mkdir -p ~/.local/share/glib-2.0/schemas/
 	cp -ra * ~/.local/share/gnome-shell/extensions/tos@odex.be/
-	cp schemas/*.xml .local/share/glib-2.0/schemas/
-	glib-compile-schemas .local/share/glib-2.0/schemas/
+	cp schemas/*.xml ~/.local/share/glib-2.0/schemas/
+	glib-compile-schemas ~/.local/share/glib-2.0/schemas/
 
 
 s_install:
