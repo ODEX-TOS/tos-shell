@@ -1,0 +1,8 @@
+{
+  "description": "TOS Linux enabled shell extension, featuring more keybinds, a dock, better pip support and more",
+  "name": "TOS Linux extension",
+  "shell-version": [ "40", "41", "42" ],
+  "url": "https://github.com/ODEX-TOS/tos-shell", 
+  "uuid": "tos@odex.be", 
+  "version": 47
+}

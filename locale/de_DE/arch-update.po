@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Translators:
+# Karol Babioch <karol@babioch.de>, 2016
+# Onno Giesmann <nutzer3105@gmail.com>, 2020-2021
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-04 09:50+0200\n"
+"PO-Revision-Date: 2021-04-09 07:38+0200\n"
+"Last-Translator: Onno Giesmann <nutzer3105@gmail.com>\n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: extension.js:115
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: extension.js:116 extension.js:490
+msgid "Update now"
+msgstr "Jetzt aktualisieren"
+
+#: extension.js:117
+msgid "Open package manager"
+msgstr "Paketverwaltung öffnen"
+
+#: extension.js:121
+msgid "Checking"
+msgstr "Überprüfe"
+
+#: extension.js:132
+msgid "Check now"
+msgstr "Jetzt überprüfen"
+
+#: extension.js:155
+msgid "Waiting first check"
+msgstr "Warte auf erste Überprüfung"
+
+#: extension.js:332
+#, javascript-format
+msgid "%d update pending"
+msgid_plural "%d updates pending"
+msgstr[0] "%d ausstehende Aktualisierung"
+msgstr[1] "%d ausstehende Aktualisierungen"
+
+#: extension.js:346 extension.js:352
+msgid "New TOS Linux Update"
+msgid_plural "New TOS Linux Updates"
+msgstr[0] "Neue TOS-Linux-Aktualisierung"
+msgstr[1] "Neue TOS-Linux-Aktualisierungen"
+
+#: extension.js:353
+#, javascript-format
+msgid "There is %d update pending"
+msgid_plural "There are %d updates pending"
+msgstr[0] "Es gibt %d ausstehende Aktualisierung"
+msgstr[1] "Es gibt %d ausstehende Aktualisierungen"
+
+#: extension.js:370
+msgid ""
+"Note : you have to install pacman-contrib to use the 'checkupdates' script."
+msgstr ""
+"Hinweis : Zuerst pacman-contrib installieren, um 'checkupdates' zu benutzen."
+
+#: extension.js:372
+msgid "Error"
+msgstr "Fehler"
+
+#: extension.js:377
+msgid "Up to date :)"
+msgstr "Auf dem Laufenden :)"
+
+#: prefs.xml:66
+msgid "Checking for updates"
+msgstr "Überprüfe auf Aktualisierungen"
+
+#: prefs.xml:90
+msgid "Time to wait before first check (seconds)"
+msgstr "Wartezeit vor erster Überprüfung (Sekunden)"
+
+#: prefs.xml:109
+msgid "Interval between updates check (minutes)"
+msgstr "Intervall zwischen Überprüfungen (Minuten)"
+
+#: prefs.xml:128
+msgid "Strip out versions numbers"
+msgstr "Versionsnummern weglassen"
+
+#: prefs.xml:151
+msgid "Indicator"
+msgstr "Anzeige"
+
+#: prefs.xml:166
+msgid "Always visible"
+msgstr "Immer sichtbar"
+
+#: prefs.xml:185
+msgid "Use built-in icons"
+msgstr "Eingebaute Symbole verwenden"
+
+#: prefs.xml:204
+msgid "Show updates count on indicator"
+msgstr "Zeige Anzahl an Aktualisierungen"
+
+#: prefs.xml:224
+msgid ""
+"Auto-expand updates list if updates count is less than this number (0 to "
+"disable)"
+msgstr ""
+"Liste mit Aktualisierungen automatisch ausklappen, wenn Anzahl der "
+"Aktualisierungen geringer als diese Zahl ist (0 zum Deaktivieren)"
+
+#: prefs.xml:244
+msgid "Position in Panel"
+msgstr "Position in der Leiste"
+
+#: prefs.xml:258
+msgid "Left"
+msgstr "Links"
+
+#: prefs.xml:259
+msgid "Center"
+msgstr "Mitte"
+
+#: prefs.xml:260
+msgid "Right"
+msgstr "Rechts"
+
+#: prefs.xml:284
+msgid "Notification"
+msgstr "Benachrichtigung"
+
+#: prefs.xml:299
+msgid "Send a notification when new updates are available"
+msgstr "Sende eine Benachrichtigung, sobald Aktualisierungen verfügbar sind"
+
+#: prefs.xml:318
+msgid "Use transient notifications (auto dismiss)"
+msgstr "Verwende kurzlebige Benachrichtigung (automatische Ausblendung)"
+
+#: prefs.xml:337
+msgid "How much information to show on notifications"
+msgstr "Informationen, die in der Benachrichtigung angezeigt werden"
+
+#: prefs.xml:345
+msgid "Count only"
+msgstr "Nur Anzahl"
+
+#: prefs.xml:346
+msgid "New updates names"
+msgstr "Namen der neuen Aktualisierungen"
+
+#: prefs.xml:347
+msgid "All updates names"
+msgstr "Namen aller Aktualisierungen"
+
+#: prefs.xml:362
+msgid "Basic settings"
+msgstr "Standardeinstellungen"
+
+#: prefs.xml:382
+msgid "Command to check for package updates"
+msgstr "Befehl, um auf Aktualisierungen zu prüfen"
+
+#: prefs.xml:400
+msgid "Command to update packages"
+msgstr "Befehl, um Pakete zu aktualisieren"
+
+#: prefs.xml:418
+msgid "Pacman local directory path - To detect when new packages are installed"
+msgstr ""
+"Lokales Pacman-Verzeichnis – Wird benötigt, um festzustellen, dass neue "
+"Pakete installiert werden"
+
+#: prefs.xml:436
+msgid "Command to open package manager (optional)"
+msgstr "Befehl zum Öffnen der Paketverwaltung (optional)"
+
+#: prefs.xml:453
+msgid "Advanced settings"
+msgstr "Erweiterte Einstellungen"
+
+#~ msgid "<b>Timers</b>"
+#~ msgstr "<b>Timer</b>"

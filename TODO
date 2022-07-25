@@ -1,0 +1,14 @@
+# To Implement
+
+- Add support for Quarter tiling
+    - Add support for mouse dragging
+- Add support for a clipboard manager?
+- Keybindings should be added to the settings keyboard shortcuts under a TOS heading
+
+- When changing focus show a box in the center of each window to denote what keybind to press
+
+
+- Support for gnome 43.alpha (Keep backwards compatibility)
+
+
+> PS: Keep in mind that all these changes should play nice with a touch device (For future phone support)

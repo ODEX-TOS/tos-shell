@@ -1,0 +1,188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-04 09:50+0200\n"
+"PO-Revision-Date: 2021-07-11 14:29+0200\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
+
+#: extension.js:115
+msgid "Settings"
+msgstr "Voorkeuren"
+
+#: extension.js:116 extension.js:490
+msgid "Update now"
+msgstr "Nu bijwerken"
+
+#: extension.js:117
+msgid "Open package manager"
+msgstr "Pakketbeheer openen"
+
+#: extension.js:121
+msgid "Checking"
+msgstr "Bezig met controleren…"
+
+#: extension.js:132
+msgid "Check now"
+msgstr "Nu controleren"
+
+#: extension.js:155
+msgid "Waiting first check"
+msgstr "Bezig met wachten op eerste controle…"
+
+#: extension.js:332
+#, javascript-format
+msgid "%d update pending"
+msgid_plural "%d updates pending"
+msgstr[0] "%d update in de wachtrij"
+msgstr[1] "%d updates in de wachtrij"
+
+#: extension.js:346 extension.js:352
+msgid "New TOS Linux Update"
+msgid_plural "New TOS Linux Updates"
+msgstr[0] "Nieuwe TOS Linux-update"
+msgstr[1] "Nieuwe TOS Linux-updates"
+
+#: extension.js:353
+#, javascript-format
+msgid "There is %d update pending"
+msgid_plural "There are %d updates pending"
+msgstr[0] "Er staat %d update in de wachtrij"
+msgstr[1] "Er staan %d updates in de wachtrij"
+
+#: extension.js:370
+msgid ""
+"Note : you have to install pacman-contrib to use the 'checkupdates' script."
+msgstr ""
+"Let op: om het ‘checkupdates’-script te kunnen gebruiken dient u ‘pacman-"
+"contrib’ te installeren."
+
+#: extension.js:372
+msgid "Error"
+msgstr "Foutmelding"
+
+#: extension.js:377
+msgid "Up to date :)"
+msgstr "De software is actueel :)"
+
+#: prefs.xml:66
+msgid "Checking for updates"
+msgstr "Bezig met controleren…"
+
+#: prefs.xml:90
+msgid "Time to wait before first check (seconds)"
+msgstr "Wachttijd alvorens eerste controle (in seconden)"
+
+#: prefs.xml:109
+msgid "Interval between updates check (minutes)"
+msgstr "Wachttijd tussen controles (in minuten)"
+
+#: prefs.xml:128
+msgid "Strip out versions numbers"
+msgstr "Versienummers verbergen"
+
+#: prefs.xml:151
+msgid "Indicator"
+msgstr "Indicator"
+
+#: prefs.xml:166
+msgid "Always visible"
+msgstr "Altijd tonen"
+
+#: prefs.xml:185
+msgid "Use built-in icons"
+msgstr "Meegeleverde pictogrammen gebruiken"
+
+#: prefs.xml:204
+msgid "Show updates count on indicator"
+msgstr "Aantal updates tonen op indicator"
+
+#: prefs.xml:224
+msgid ""
+"Auto-expand updates list if updates count is less than this number (0 to "
+"disable)"
+msgstr ""
+"Lijst automatisch uitklappen als het aantal updates meer is dan hier "
+"opgegeven (0=uitschakelen)"
+
+#: prefs.xml:244
+msgid "Position in Panel"
+msgstr "Positie op bovenbalk"
+
+#: prefs.xml:258
+msgid "Left"
+msgstr "Links"
+
+#: prefs.xml:259
+msgid "Center"
+msgstr "Midden"
+
+#: prefs.xml:260
+msgid "Right"
+msgstr "Rechts"
+
+#: prefs.xml:284
+msgid "Notification"
+msgstr "Melding"
+
+#: prefs.xml:299
+msgid "Send a notification when new updates are available"
+msgstr "Toon een melding als er updates beschikbaar zijn"
+
+#: prefs.xml:318
+msgid "Use transient notifications (auto dismiss)"
+msgstr "Meldingen automatisch verwerpen"
+
+#: prefs.xml:337
+msgid "How much information to show on notifications"
+msgstr "Hoeveel informatie updatemeldingen moeten bevatten"
+
+#: prefs.xml:345
+msgid "Count only"
+msgstr "Alleen het aantal"
+
+#: prefs.xml:346
+msgid "New updates names"
+msgstr "Namen van nieuwe updates"
+
+#: prefs.xml:347
+msgid "All updates names"
+msgstr "Alle namen van updates"
+
+#: prefs.xml:362
+msgid "Basic settings"
+msgstr "Algemene voorkeuren"
+
+#: prefs.xml:382
+msgid "Command to check for package updates"
+msgstr "Uit te voeren opdracht bij updatecontroles"
+
+#: prefs.xml:400
+msgid "Command to update packages"
+msgstr "Uit te voeren opdracht bij pakketbijwerkingen"
+
+#: prefs.xml:418
+msgid "Pacman local directory path - To detect when new packages are installed"
+msgstr ""
+"Lokale Pacman-locatie - Om te detecteren wanneer nieuwe pakketten worden "
+"geïnstalleerd"
+
+#: prefs.xml:436
+msgid "Command to open package manager (optional)"
+msgstr "Uit te voeren opdracht bij het openen van pakketbeheer (optioneel)"
+
+#: prefs.xml:453
+msgid "Advanced settings"
+msgstr "Geavanceerde voorkeuren"

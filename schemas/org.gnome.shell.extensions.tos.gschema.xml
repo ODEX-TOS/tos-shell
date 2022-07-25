@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema gettext-domain="tos" id="org.gnome.shell.extensions.tos"
+      path="/org/gnome/shell/extensions/tos/">
+
+    <key type="i" name="boot-wait">
+        <default>15</default>
+        <summary>Time to wait before first check (seconds)</summary>
+        <description>A first check is made this number of seconds after startup</description>
+        <range min="5" max="5000"/>
+    </key>
+
+    <key type="i" name="check-interval">
+        <default>60</default>
+        <summary>Interval between updates check (minutes)</summary>
+        <description>Time to wait between two automatic checks</description>
+        <range min="30" max="2000"/>
+    </key>
+
+    <key name="always-visible" type="b">
+      <default>true</default>
+        <summary>Indicator is always visble</summary>
+        <description>
+            If true, the indicator is always visible, even when non updates are pending
+        </description>
+    </key>
+
+    <key name="use-buildin-icons" type="b">
+      <default>false</default>
+        <summary>Use build-in icons</summary>
+        <description>
+            If true, the build-in status icons are used instead of theme icons
+        </description>
+    </key>
+
+    <key name="show-count" type="b">
+      <default>true</default>
+        <summary>Show updates count on indicator</summary>
+        <description>
+            If true, the indicator will display the number of updates pending
+        </description>
+    </key>
+
+    <key name="notify" type="b">
+      <default>false</default>
+        <summary>Send a notification when new updates are available</summary>
+        <description>Send a notification when new updates are available</description>
+    </key>
+
+    <key name="howmuch" type="i">
+      <default>0</default>
+        <summary>How much information to show on notifications</summary>
+        <description>0:count, 1:list</description>
+    </key>
+
+    <key name="transient" type="b">
+      <default>true</default>
+        <summary>Use transient notifications (auto dismiss)</summary>
+        <description></description>
+    </key>
+
+    <key name="check-cmd" type="s">
+      <default>"/usr/bin/checkupdates-tos"</default>
+      <summary>Command to run to check for updated packages.</summary>
+      <description>Command to run to check for updated packages.</description>
+    </key>
+
+    <key name="update-cmd" type="s">
+      <default>"gnome-terminal -- /bin/sh -c \"sudo pacman -Syu ; echo Done - Press enter to exit; read _\" "</default>
+      <summary>Command to run to update packages.</summary>
+      <description>Command to run to update packages.</description>
+    </key>
+
+    <key name="pacman-dir" type="s">
+      <default>"/var/lib/pacman/local"</default>
+        <summary>Pacman directory to monitor</summary>
+        <description></description>
+    </key>
+
+    <key name="strip-versions" type="b">
+      <default>true</default>
+        <summary>Remove version numbers from checkupdates output</summary>
+        <description></description>
+    </key>
+
+    <key name="auto-expand-list" type="i">
+      <default>0</default>
+        <summary>Auto-open list submenu when updates count is lower than this number</summary>
+        <description></description>
+        <range min="0" max="100"/>
+    </key>
+
+    <key name="package-manager" type="s">
+      <default>""</default>
+      <summary>Command to run to open package manager.</summary>
+      <description></description>
+    </key>
+
+    <key name="position" type="i">
+      <default>2</default>
+      <summary>Position in the panel</summary>
+      <description>Position where the tos update will be displayed (left/center/right)</description>
+    </key>
+
+    <key name="position-number" type="i">
+      <default>-0</default>
+      <summary>Position of the tos update inside the box</summary>
+      <description></description>
+    </key>
+
+    <!-- TOS Focus change keybinds-->
+    <key name="left-focus" type="as">
+      <default><![CDATA[['<Super>Left']]]></default>
+      <summary>Focus to the window on the left</summary>
+    </key>
+
+    <key name="right-focus" type="as">
+      <default><![CDATA[['<Super>Right']]]></default>
+      <summary>Focus to the window on the right</summary>
+    </key>
+
+
+    <key name="top-focus" type="as">
+      <default><![CDATA[['<Super>Up']]]></default>
+      <summary>Focus to the window on the top</summary>
+    </key>
+
+
+    <key name="bottom-focus" type="as">
+      <default><![CDATA[['<Super>Down']]]></default>
+      <summary>Focus to the window on the bottom</summary>
+    </key>
+
+
+    <!-- Dock settings -->
+    <key type="b" name="dock-always-show">
+        <default>false</default>
+        <summary>Always show the dock</summary>
+        <description>Keep the dock always visible.</description>
+    </key>
+
+    <key type="b" name="dock-show-in-full-screen">
+        <default>false</default>
+        <summary>Show dock in full screen</summary>
+        <description>Show the dock while in full screen mode.</description>
+    </key>
+
+    <key type="i" name="dock-background-opacity">
+        <default>90</default>
+        <summary>Dock background opacity</summary>
+        <description>Opacity, in %, of the dock background, 0 = translucent 100 = solid.</description>
+    </key>
+
+    <key type="i" name="dock-icons-opacity">
+        <default>100</default>
+        <summary>Dock icons opacity</summary>
+        <description>Opacity, in %, of the dock icons, 0 = translucent 100 = solid.</description>
+    </key>
+
+    <key type="i" name="dock-autohide-delay">
+        <default>300</default>
+        <summary>Dock autohide timeout</summary>
+        <description>Delay, in milliseconds, before the dock hides after the cursor abandons it.</description>
+    </key>
+
+    <key type="i" name="dock-toggle-delay">
+        <default>150</default>
+        <summary>Dock toggle delay</summary>
+        <description>Delay, in milliseconds, before the dock shows after the cursor reaches the bottom of the screen.</description>
+    </key>
+
+    <key type="i" name="dock-show-dock-duration">
+        <default>100</default>
+        <summary>Show dock animation duration</summary>
+        <description>Duration, in milliseconds, of dock showing animation.</description>
+    </key>
+
+    <key type="i" name="dock-hide-dock-duration">
+        <default>200</default>
+        <summary>Hide dock animation duration</summary>
+        <description>Duration, in milliseconds, of dock hiding animation.</description>
+    </key>
+
+
+    <!-- Docker -->
+    <key type="s" name="containers-prefix-separator">
+      <default>"_"</default>
+      <summary>summary</summary>
+      <description>description</description>
+    </key>
+
+
+  </schema>
+</schemalist>

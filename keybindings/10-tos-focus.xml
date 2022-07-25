@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<KeyListEntries group="system" schema="org.gnome.shell.extensions.tos" name="TOS">
+  <KeyListEntry name="left-focus"   description="Move focus to the left window"/>
+  <KeyListEntry name="right-focus"  description="Move focus to the right window"/>
+  <KeyListEntry name="top-focus"    description="Move focus to the top window"/>
+  <KeyListEntry name="bottom-focus" description="Move focus to the bottom window"/>
+</KeyListEntries>

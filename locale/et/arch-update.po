@@ -1,0 +1,184 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-04 09:50+0200\n"
+"PO-Revision-Date: 2018-05-21 19:53+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: extension.js:115
+msgid "Settings"
+msgstr "Seaded"
+
+#: extension.js:116 extension.js:490
+msgid "Update now"
+msgstr "Uuenda kohe"
+
+#: extension.js:117
+msgid "Open package manager"
+msgstr "Ava paketihaldur"
+
+#: extension.js:121
+msgid "Checking"
+msgstr "Kontrollimine"
+
+#: extension.js:132
+msgid "Check now"
+msgstr "Kontrolli kohe"
+
+#: extension.js:155
+msgid "Waiting first check"
+msgstr "Ootan esimest kontrolli"
+
+#: extension.js:332
+#, javascript-format
+msgid "%d update pending"
+msgid_plural "%d updates pending"
+msgstr[0] "%d uuendus ootel"
+msgstr[1] "%d uuendust ootel"
+
+#: extension.js:346 extension.js:352
+msgid "New TOS Linux Update"
+msgid_plural "New TOS Linux Updates"
+msgstr[0] "Uus TOS Linux'i uuendus"
+msgstr[1] "Uued TOS Linux'i uuendused"
+
+#: extension.js:353
+#, javascript-format
+msgid "There is %d update pending"
+msgid_plural "There are %d updates pending"
+msgstr[0] "%d uuendus on ootel"
+msgstr[1] "%d uuendust on ootel"
+
+#: extension.js:370
+msgid ""
+"Note : you have to install pacman-contrib to use the 'checkupdates' script."
+msgstr ""
+
+#: extension.js:372
+msgid "Error"
+msgstr "Viga"
+
+#: extension.js:377
+msgid "Up to date :)"
+msgstr "Süsteem on ajakohane :)"
+
+#: prefs.xml:66
+msgid "Checking for updates"
+msgstr "Uuenduste kontrollimine"
+
+#: prefs.xml:90
+msgid "Time to wait before first check (seconds)"
+msgstr "Oodatav aeg enne esimest kontrolli (sekundites)"
+
+#: prefs.xml:109
+msgid "Interval between updates check (minutes)"
+msgstr "Intervall uuenduste kontrollimise vahel (minutites)"
+
+#: prefs.xml:128
+msgid "Strip out versions numbers"
+msgstr "Jäta välja versiooninumbrid"
+
+#: prefs.xml:151
+msgid "Indicator"
+msgstr "Indikaator"
+
+#: prefs.xml:166
+msgid "Always visible"
+msgstr "Alati nähtav"
+
+#: prefs.xml:185
+msgid "Use built-in icons"
+msgstr ""
+
+#: prefs.xml:204
+msgid "Show updates count on indicator"
+msgstr "Näita uuenduste arvu indikaatoril"
+
+#: prefs.xml:224
+msgid ""
+"Auto-expand updates list if updates count is less than this number (0 to "
+"disable)"
+msgstr ""
+"Laienda uuenduste nimekirja automaatselt, kui uuenduste arv on vähem kui see "
+"number (keelamiseks kirjuta 0)"
+
+#: prefs.xml:244
+msgid "Position in Panel"
+msgstr ""
+
+#: prefs.xml:258
+msgid "Left"
+msgstr ""
+
+#: prefs.xml:259
+msgid "Center"
+msgstr ""
+
+#: prefs.xml:260
+msgid "Right"
+msgstr ""
+
+#: prefs.xml:284
+msgid "Notification"
+msgstr "Teade"
+
+#: prefs.xml:299
+msgid "Send a notification when new updates are available"
+msgstr "Saada teade, kui uued uuendused on saadaval"
+
+#: prefs.xml:318
+msgid "Use transient notifications (auto dismiss)"
+msgstr "Kasuta lühiaegseid teateid (automaatselt sulguv)"
+
+#: prefs.xml:337
+msgid "How much information to show on notifications"
+msgstr "Millist infot teadetes kuvada"
+
+#: prefs.xml:345
+msgid "Count only"
+msgstr "Uuendatavate pakettide arv"
+
+#: prefs.xml:346
+msgid "New updates names"
+msgstr "Uued uuendatavad paketid"
+
+#: prefs.xml:347
+msgid "All updates names"
+msgstr "Kõik uuendatavad paketid"
+
+#: prefs.xml:362
+msgid "Basic settings"
+msgstr "Põhiseaded"
+
+#: prefs.xml:382
+msgid "Command to check for package updates"
+msgstr "Paketiuuenduste kontrollimise käsklus"
+
+#: prefs.xml:400
+msgid "Command to update packages"
+msgstr "Pakettide uuendamise käsklus"
+
+#: prefs.xml:418
+msgid "Pacman local directory path - To detect when new packages are installed"
+msgstr "Pacman'i kohalik kaustatee - et tuvastada uute pakettide installimine"
+
+#: prefs.xml:436
+msgid "Command to open package manager (optional)"
+msgstr "Paketihalduri avamise käsklus (valikuline)"
+
+#: prefs.xml:453
+msgid "Advanced settings"
+msgstr "Täpsemad seaded"
