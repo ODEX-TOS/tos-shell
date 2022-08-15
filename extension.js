@@ -70,6 +70,8 @@ let tosBootModules = [
 	// Load a docker logo in the top panel if docker is installed
 	new TosBootOption("TOSDocker",   Me.imports.src.docker.docker.Docker),
 
+	// Jiggling the mouse cursor will increase the size to more easily find it
+	new TosBootOption("TOSMouseFinder",   Me.imports.src.jiggle.jiggle.Jiggle),
 ]
 
 function init() {
@@ -80,7 +82,7 @@ function init() {
 
 // This is the entrypoint which will start each individual module
 function enable() {
-	print("Enabling tos extension")
+	log("Enabling tos extension")
 
 	if(!Main.tos) Main.tos = {}
 	

@@ -173,7 +173,6 @@ class TosFocusManager {
             this.init()
         } catch (error) {
             logError(error, 'HitDetectorStartupError')
-            print(error)
         }
 	}
 
@@ -246,7 +245,7 @@ class TosFocusManager {
 
 		bindings.forEach((bind) => {
 			let val = settings.get_strv(bind);
-			print(settings.get_strv(bind));
+			log(settings.get_strv(bind));
 			settings.set_strv(bind, val);
 		})
 	}
