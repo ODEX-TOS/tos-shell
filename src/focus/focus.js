@@ -19,6 +19,7 @@ class Point {
 class TOSHitDetector {
 	constructor() {
 		this.workspace_manager = global.workspace_manager;
+		this.MIN_DELTA = 50;
 	}
 
 	get_workspace() {
@@ -50,113 +51,91 @@ class TOSHitDetector {
 	distance_y(a, b) {
 		return a.y - b.y;
 	}
+	
+	// In a one dimensional view the 2 windows are clipping through each other on the x axis
+	// If that is not the case usually this means that the user didn't intend to move to that window
+	on_same_axis_x(a, b) {
+		return (b.x >= a.x - this.MIN_DELTA && b.x <= a.x + a.width + this.MIN_DELTA) || (b.x + b.width >= a.x - this.MIN_DELTA && b.x + b.width <= a.x + a.width + this.MIN_DELTA);
+	}
 
-	// Find the closest window to the left
-	left_hit(window) {
+	// In a one dimensional view the 2 windows are clipping through each other on the y axis
+	// If that is not the case usually this means that the user didn't intend to move to that window
+	on_same_axis_y(a, b) {
+		return (b.y >= a.y - this.MIN_DELTA && b.y <= a.y + a.height + this.MIN_DELTA) || (b.y + b.height >= a.y - this.MIN_DELTA  && b.y + b.height <= a.y + a.height + this.MIN_DELTA);
+	}
+
+	generic_hit(window, smallest_distance, hit_detection_callback) {
 		let windows = this.get_windows().filter((w) => w !== window); // We don't need to hit test ourselves
 
 		// left means that the w should be before window on the x axis
 		let matched_window = undefined;
-		let smallest_distance = Number.MAX_SAFE_INTEGER;
 
-		let w_point = this.window_rect_to_point(this.window_to_rect(window));
+		let w_rect = this.window_to_rect(window)
+		let w_point = this.window_rect_to_point(w_rect);
 
 		windows.forEach(w => {
 			let rect = this.window_to_rect(w);
 			let point = this.window_rect_to_point(rect);
 
-			let distance = this.distance_x(w_point, point);
-
-			if (distance < 0) return; // We are looking to a window on the right side (not left)
-			if (distance < smallest_distance) {
-				smallest_distance = distance;
-				matched_window = w;
-			}
+			let result = hit_detection_callback(w, w_rect, w_point, rect, point, smallest_distance, matched_window);
+			smallest_distance = result[0];
+			matched_window = result[1];
 		});
 
 		// If matched_window is undefined that means there is no window to the left
 		return matched_window;
+	}
+
+	// Find the closest window to the left
+	left_hit(window) {
+		return this.generic_hit(window, Number.MAX_SAFE_INTEGER, (w, w_rect, w_point, rect, point, smallest_distance, matched_window) => {
+			let distance = this.distance_x(w_point, point);
+
+			if (distance < this.MIN_DELTA) return [smallest_distance, matched_window]; // We are looking to a window on the right side (not left)
+			//if(!this.on_same_axis_x(w_rect, rect)) return [smallest_distance, matched_window];
+			if (distance < smallest_distance) return [distance, w];
+
+			return [smallest_distance, matched_window];
+		})
 	}
 
 	// Find the closest window to the right
 	right_hit(window) {
-		let windows = this.get_windows().filter((w) => w !== window); // We don't need to hit test ourselves
-
-		// left means that the w should be before window on the x axis
-		let matched_window = undefined;
-		let smallest_distance = Number.MIN_SAFE_INTEGER;
-
-		let w_point = this.window_rect_to_point(this.window_to_rect(window));
-
-		windows.forEach(w => {
-			let rect = this.window_to_rect(w);
-			let point = this.window_rect_to_point(rect);
-
+		return this.generic_hit(window, Number.MIN_SAFE_INTEGER, (w, w_rect, w_point, rect, point, smallest_distance, matched_window) => {
 			let distance = this.distance_x(w_point, point);
 
-			if (distance > 0) return; // We are looking to a window on the left side (not right)
-			if (distance > smallest_distance) {
-				smallest_distance = distance;
-				matched_window = w;
-			}
-		});
+			if (distance > this.MIN_DELTA) return [smallest_distance, matched_window]; // We are looking to a window on the left side (not right)
+			//if(!this.on_same_axis_x(w_rect, rect)) return [smallest_distance, matched_window];
+			if (distance > smallest_distance) return [distance, w];
 
-		// If matched_window is undefined that means there is no window to the left
-		return matched_window;
+			return [smallest_distance, matched_window];
+		})
 	}
 
 	// Find the closest window to the top
 	top_hit(window) {
-		let windows = this.get_windows().filter((w) => w !== window); // We don't need to hit test ourselves
-
-		// top means that the w should be before window on the y axis
-		let matched_window = undefined;
-		let smallest_distance = Number.MAX_SAFE_INTEGER;
-
-		let w_point = this.window_rect_to_point(this.window_to_rect(window));
-
-		windows.forEach(w => {
-			let rect = this.window_to_rect(w);
-			let point = this.window_rect_to_point(rect);
-
+		return this.generic_hit(window, Number.MAX_SAFE_INTEGER, (w, w_rect, w_point, rect, point, smallest_distance, matched_window) => {
 			let distance = this.distance_y(w_point, point);
 
-			if (distance < 0) return; // We are looking to a window on the left side (not right)
-			if (distance < smallest_distance) {
-				smallest_distance = distance;
-				matched_window = w;
-			}
-		});
+			if (distance < this.MIN_DELTA) return [smallest_distance, matched_window]; // We are looking to a window on the left side (not right)
+			//if(!this.on_same_axis_y(w_rect, rect)) return [smallest_distance, matched_window];
+			if (distance < smallest_distance) return [distance, w];
 
-		// If matched_window is undefined that means there is no window to the left
-		return matched_window;
+			return [smallest_distance, matched_window];
+		})
 	}
 
 	// Find the closest window to the bottom
 	bottom_hit(window) {
-		let windows = this.get_windows().filter((w) => w !== window); // We don't need to hit test ourselves
-
-		// top means that the w should be before window on the y axis
-		let matched_window = undefined;
-		let smallest_distance = Number.MIN_SAFE_INTEGER;
-
-		let w_point = this.window_rect_to_point(this.window_to_rect(window));
-
-		windows.forEach(w => {
-			let rect = this.window_to_rect(w);
-			let point = this.window_rect_to_point(rect);
-
+		return this.generic_hit(window, Number.MIN_SAFE_INTEGER, (w, w_rect, w_point, rect, point, smallest_distance, matched_window) => {
 			let distance = this.distance_y(w_point, point);
 
-			if (distance > 0) return; // We are looking to a window on the left side (not right)
-			if (distance > smallest_distance) {
-				smallest_distance = distance;
-				matched_window = w;
-			}
-		});
-
-		// If matched_window is undefined that means there is no window to the left
-		return matched_window;
+			if (distance > this.MIN_DELTA) return [smallest_distance, matched_window]; // We are looking to a window on the left side (not right)
+			//if(!this.on_same_axis_y(w_rect, rect)) return [smallest_distance, matched_window];
+			if (distance > smallest_distance) return [distance, w];
+			
+			return [smallest_distance, matched_window];
+		})
 	}
 
 	// This get's called when disabling the tos extention
