@@ -1,3 +1,4 @@
+DESTDIR ?= /
 
 compile:
 	glib-compile-schemas schemas/
@@ -11,24 +12,24 @@ install: compile
 
 
 s_install:
-	mkdir -p /usr/share/gnome-shell/extensions/tos@odex.be/
-	mkdir -p /usr/share/glib-2.0/schemas/
-	cp -ra * /usr/share/gnome-shell/extensions/tos@odex.be/
-	cp schemas/*.xml /usr/share/glib-2.0/schemas
-	glib-compile-schemas /usr/share/glib-2.0/schemas/
+	mkdir -p $(DESTDIR)/usr/share/gnome-shell/extensions/tos@odex.be/
+	mkdir -p $(DESTDIR)/usr/share/glib-2.0/schemas/
+	cp -ra * $(DESTDIR)/usr/share/gnome-shell/extensions/tos@odex.be/
+	cp schemas/*.xml $(DESTDIR)/usr/share/glib-2.0/schemas
+	glib-compile-schemas $(DESTDIR)/usr/share/glib-2.0/schemas/
 
 
 run: compile install
 	dbus-run-session -- gnome-shell --nested --wayland
 
 keys: compile
-	mkdir -p  /usr/share/gnome-control-center/keybindings/
-	cp keybindings/*.xml /usr/share/gnome-control-center/keybindings
+	mkdir -p  $(DESTDIR)/usr/share/gnome-control-center/keybindings/
+	cp keybindings/*.xml $(DESTDIR)/usr/share/gnome-control-center/keybindings
 
 system_install:  s_install keys
 
 
 system_uninstall:
-	rm -r /usr/share/gnome-shell/extensions/tos@odex.be/ || true
-	find schemas/ -iname '*.xml' -printf "%f\n" -exec rm /usr/share/glib-2.0/{} \;
-	glib-compile-schemas /usr/share/glib-2.0/schemas/
+	rm -r $(DESTDIR)/usr/share/gnome-shell/extensions/tos@odex.be/ || true
+	find schemas/ -iname '*.xml' -printf "%f\n" -exec rm $(DESTDIR)/usr/share/glib-2.0/{} \;
+	glib-compile-schemas $(DESTDIR)/usr/share/glib-2.0/schemas/
