@@ -2,7 +2,7 @@
 
 pkgname=tos-shell
 pkgver=43
-pkgrel=1
+pkgrel=2
 pkgdesc="Helper shell extension to improve the gnome workflow"
 arch=('any')
 url="https://github.com/ODEX-TOS/tos-shell"

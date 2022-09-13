@@ -72,6 +72,9 @@ let tosBootModules = [
 
 	// Jiggling the mouse cursor will increase the size to more easily find it
 	new TosBootOption("TOSMouseFinder",   Me.imports.src.jiggle.jiggle.Jiggle),
+
+  // When running the ISO we show an install button
+	new TosBootOption("TOSInstaller",   Me.imports.src.installer.installer.Calamares),
 ]
 
 function init() {
