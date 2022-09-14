@@ -60,7 +60,7 @@ class IntCalamares {
     }
 
     open_installer() {
-      GLib.spawn_command_line_async('sh -c "tos c || calamares"');
+      GLib.spawn_command_line_async('sudo su -c "tos c"');
     }
 
     start() {
