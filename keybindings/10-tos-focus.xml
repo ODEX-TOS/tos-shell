@@ -4,4 +4,5 @@
   <KeyListEntry name="right-focus"  description="Move focus to the right window"/>
   <KeyListEntry name="top-focus"    description="Move focus to the top window"/>
   <KeyListEntry name="bottom-focus" description="Move focus to the bottom window"/>
+  <KeyListEntry name="quick-setting" description="Open the quick settings panel"/>
 </KeyListEntries>

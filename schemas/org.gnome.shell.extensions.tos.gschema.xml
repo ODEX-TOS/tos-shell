@@ -131,6 +131,12 @@
       <summary>Focus to the window on the bottom</summary>
     </key>
 
+    <!-- Generic keybindings -->
+    <key name="quick-setting" type="as">
+      <default><![CDATA[['<Super>c']]]></default>
+      <summary>Open the quick settings</summary>
+    </key>
+
 
     <!-- Dock settings -->
     <key type="b" name="dock-always-show">
@@ -192,3 +198,4 @@
 
   </schema>
 </schemalist>
+
