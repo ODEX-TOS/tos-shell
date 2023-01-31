@@ -44,3 +44,4 @@ class Shortcut {
 }
 
 var Shortcuts = Shortcut;
+

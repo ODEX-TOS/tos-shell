@@ -164,12 +164,12 @@ async function get_images() {
 					name: `${s[1]}:${s[2]}`
 				};
 			})
-			.sort((a,b) => {
+			/*.sort((a,b) => {
 				if (a.name < b.name) return -1;
 				if (a.name > b.name) return 1;
 				// equal name
 				return 0;
-			});
+			});*/ // We want to filter based on creation date
 
 }
 

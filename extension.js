@@ -76,7 +76,7 @@ let tosBootModules = [
 	// Add generic keybindings
 	new TosBootOption("TOSKeybindings",   Me.imports.src.shortcut.shortcut.Shortcuts),
 
-  // When running the ISO we show an install button
+  	// When running the ISO we show an install button
 	new TosBootOption("TOSInstaller",   Me.imports.src.installer.installer.Calamares),
 ]
 
@@ -98,6 +98,7 @@ function enable() {
 		// Map the instance of our boot module to Main.tos so looking glass can more easily access it
 		Main.tos[bootOption.name] = bootOption.instance;
 	})
+
 }
 
 // Cleanup all our modules

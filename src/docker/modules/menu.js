@@ -75,7 +75,10 @@ var Menu = GObject.registerClass(
 					}
 
 					this._containers.addMenuItem(new PopupMenu.PopupSeparatorMenuItem('Containers'));
-					containers.forEach((container) => {
+					containers.sort((a, b) => {
+					    // Running containers should show first
+					    return b.state == "running"
+					}).slice(0,10).forEach((container) => {
 						this[container.id] = new menu.Container_Menu(container);
 						this._containers.addMenuItem(this[container.id]);
 					});
@@ -96,7 +99,7 @@ var Menu = GObject.registerClass(
 					}
 
 					this._containers.addMenuItem(new PopupMenu.PopupSeparatorMenuItem('Images'));
-					images.forEach((image) => {
+					images.slice(0,10).forEach((image) => {
 						this[image.id] = new menu.Image_Menu(image);
 						this._images.addMenuItem(this[image.id]);
 					});
@@ -104,3 +107,4 @@ var Menu = GObject.registerClass(
 		}
 	}
 );
+
