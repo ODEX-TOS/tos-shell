@@ -76,8 +76,11 @@ let tosBootModules = [
 	// Add generic keybindings
 	new TosBootOption("TOSKeybindings",   Me.imports.src.shortcut.shortcut.Shortcuts),
 
-  	// When running the ISO we show an install button
+  // When running the ISO we show an install button
 	new TosBootOption("TOSInstaller",   Me.imports.src.installer.installer.Calamares),
+
+	// When running the ISO we show an install button
+	new TosBootOption("TOSTopBarFollow",   Me.imports.src.fullscreen.fullscreen.Fullscreen),
 ]
 
 function init() {
