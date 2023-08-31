@@ -20,6 +20,7 @@ class TOSHitDetector {
 	constructor() {
 		this.workspace_manager = global.workspace_manager;
 		this.MIN_DELTA = 50;
+        this.GAP = 5; // The gap in pixels when tiling windows
 	}
 
 	get_workspace() {
@@ -42,6 +43,12 @@ class TOSHitDetector {
 		return new Point(x, y)
 	}
 
+    // Place the window at a specific location & size
+    window_to_pos(window, x, y, width, height) {
+        log("Changing window to new position")
+        window.move_resize_frame(false, x + this.GAP, y + this.GAP, width - (this.GAP*2), height - (this.GAP*2));
+    }
+
 
 	// Get the distance between two points
 	distance_x(a, b) {
@@ -51,7 +58,7 @@ class TOSHitDetector {
 	distance_y(a, b) {
 		return a.y - b.y;
 	}
-	
+
 	// In a one dimensional view the 2 windows are clipping through each other on the x axis
 	// If that is not the case usually this means that the user didn't intend to move to that window
 	on_same_axis_x(a, b) {
@@ -133,7 +140,7 @@ class TOSHitDetector {
 			if (distance > this.MIN_DELTA) return [smallest_distance, matched_window]; // We are looking to a window on the left side (not right)
 			//if(!this.on_same_axis_y(w_rect, rect)) return [smallest_distance, matched_window];
 			if (distance > smallest_distance) return [distance, w];
-			
+
 			return [smallest_distance, matched_window];
 		})
 	}
@@ -158,7 +165,7 @@ class TosFocusManager {
 	get_focussed() {
 		let f_arr = this.hit.get_windows().filter((w) => w.appears_focused);
 		if (f_arr.length != 1) return;
-		return f_arr[0]; 
+		return f_arr[0];
 	}
 
 	left() {
@@ -217,14 +224,91 @@ class TosFocusManager {
 		return window;
 	}
 
+    generic_move(window) {
+        window.unmaximize(Meta.MaximizeFlags.BOTH);
+        window.unmake_fullscreen();
+    }
+
+	left_move() {
+		let focus = this.get_focussed()
+		if (!focus) return;
+        this.generic_move(focus);
+
+        let ws = this.hit.get_workspace()
+        let monitor_id = focus.get_monitor();
+
+        let ws_rect = ws.get_work_area_for_monitor(monitor_id);
+
+        // Calculate all parameters to move the window to the left side of the workspace
+        let x = ws_rect.x;
+        let y = ws_rect.y;
+        let width = ws_rect.width/2;
+        let height = ws_rect.height;
+        this.hit.window_to_pos(focus, x, y, width, height);
+	}
+	right_move() {
+		let focus = this.get_focussed()
+		if (!focus) return;
+        this.generic_move(focus);
+
+        let ws = this.hit.get_workspace()
+        let monitor_id = focus.get_monitor();
+
+        let ws_rect = ws.get_work_area_for_monitor(monitor_id);
+
+        // Calculate all parameters to move the window to the left side of the workspace
+        let width = ws_rect.width/2;
+        let x = ws_rect.x + width;
+        let y = ws_rect.y;
+        let height = ws_rect.height;
+        this.hit.window_to_pos(focus, x, y, width, height);
+	}
+	bottom_move() {
+		let focus = this.get_focussed()
+		if (!focus) return;
+        this.generic_move(focus);
+
+        let ws = this.hit.get_workspace()
+        let monitor_id = focus.get_monitor();
+
+        let ws_rect = ws.get_work_area_for_monitor(monitor_id);
+
+        // Calculate all parameters to move the window to the left side of the workspace
+        let height = ws_rect.height/2;
+        let x = ws_rect.x;
+        let y = ws_rect.y + height;
+        let width = ws_rect.width;
+        this.hit.window_to_pos(focus, x, y, width, height);
+	}
+	top_move() {
+		let focus = this.get_focussed()
+		if (!focus) return;
+        this.generic_move(focus);
+
+        let ws = this.hit.get_workspace()
+        let monitor_id = focus.get_monitor();
+
+        let ws_rect = ws.get_work_area_for_monitor(monitor_id);
+
+        // Calculate all parameters to 'maximize' with gaps
+        let x = ws_rect.x;
+        let y = ws_rect.y;
+        let width = ws_rect.width;
+        let height = ws_rect.height;
+        this.hit.window_to_pos(focus, x, y, width, height);
+	}
+
 	// TODO: Implement a swap mode instead of only a focus switch mode
 
 	ensure_database(settings) {
-		let bindings = ['left-focus', 'right-focus', 'top-focus', 'bottom-focus'];
+		let bindings = [
+            'left-focus', 'right-focus', 'top-focus', 'bottom-focus',
+            'left-move', 'right-move', 'top-move', 'bottom-move',
+        ];
 
 		bindings.forEach((bind) => {
 			let val = settings.get_strv(bind);
-			log(settings.get_strv(bind));
+			log(bind + ' - ' + settings.get_strv(bind));
 			settings.set_strv(bind, val);
 		})
 	}
@@ -233,7 +317,7 @@ class TosFocusManager {
 		let settings = ExtensionUtils.getSettings("org.gnome.shell.extensions.tos");
 
 		this.ensure_database(settings)
-		
+
 		// left
 		Main.wm.addKeybinding("left-focus", settings,
 			Meta.KeyBindingFlags.IGNORE_AUTOREPEAT,
@@ -257,6 +341,26 @@ class TosFocusManager {
 			Meta.KeyBindingFlags.IGNORE_AUTOREPEAT,
 			Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW,
 			this.bottom.bind(this));
+
+        // Move bindings
+        Main.wm.addKeybinding("left-move", settings,
+			Meta.KeyBindingFlags.IGNORE_AUTOREPEAT,
+			Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW,
+			this.left_move.bind(this));
+        Main.wm.addKeybinding("right-move", settings,
+			Meta.KeyBindingFlags.IGNORE_AUTOREPEAT,
+			Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW,
+			this.right_move.bind(this));
+        Main.wm.addKeybinding("top-move", settings,
+			Meta.KeyBindingFlags.IGNORE_AUTOREPEAT,
+			Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW,
+			this.top_move.bind(this));
+        Main.wm.addKeybinding("bottom-move", settings,
+			Meta.KeyBindingFlags.IGNORE_AUTOREPEAT,
+			Shell.ActionMode.NORMAL | Shell.ActionMode.OVERVIEW,
+			this.bottom_move.bind(this));
+
+
 	}
 
 	destroy() {
@@ -264,6 +368,11 @@ class TosFocusManager {
 		Main.wm.removeKeybinding("right-focus");
 		Main.wm.removeKeybinding("top-focus");
 		Main.wm.removeKeybinding("bottom-focus");
+
+		Main.wm.removeKeybinding("left-move");
+		Main.wm.removeKeybinding("right-move");
+		Main.wm.removeKeybinding("top-move");
+		Main.wm.removeKeybinding("bottom-move");
 	}
 }
 

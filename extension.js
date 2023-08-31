@@ -94,7 +94,7 @@ function enable() {
 	log("Enabling tos extension")
 
 	if(!Main.tos) Main.tos = {}
-	
+
 	tosBootModules.forEach((bootOption) => {
 		bootOption.startup()
 

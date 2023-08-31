@@ -131,10 +131,38 @@
       <summary>Focus to the window on the bottom</summary>
     </key>
 
+    <!-- TOS Move window change keybinds-->
+    <key name="left-move" type="as">
+      <default><![CDATA[['<Super><Alt>Left']]]></default>
+      <summary>Move the window on the left</summary>
+    </key>
+
+    <key name="right-move" type="as">
+      <default><![CDATA[['<Super><Alt>Right']]]></default>
+      <summary>Move the window on the right</summary>
+    </key>
+
+
+    <key name="top-move" type="as">
+      <default><![CDATA[['<Super><Alt>Up']]]></default>
+      <summary>Move the window on the top</summary>
+    </key>
+
+
+    <key name="bottom-move" type="as">
+      <default><![CDATA[['<Super><Alt>Down']]]></default>
+      <summary>Move the window on the bottom</summary>
+    </key>
     <!-- Generic keybindings -->
     <key name="quick-setting" type="as">
       <default><![CDATA[['<Super>c']]]></default>
       <summary>Open the quick settings</summary>
+    </key>
+
+    <key type="i" name="window-gap">
+        <default>5</default>
+        <summary>The gap between windows when moving them</summary>
+        <range min="0" max="100"/>
     </key>
 
 
